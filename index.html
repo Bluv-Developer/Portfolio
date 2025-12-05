@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full-Stack Developer & Digital Designer</title>
+    <title>Bluv's Portfolio | Discord Bot Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-brown: #8B7355;
@@ -16,6 +16,7 @@
             --text-dark: #333333;
             --text-medium: #666666;
             --accent-color: #A67C52;
+            --discord-blue: #5865F2;
         }
 
         * {
@@ -54,7 +55,7 @@
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
+            font-family: 'JetBrains Mono', monospace;
             font-weight: 600;
             font-size: 1.8rem;
             color: var(--dark-brown);
@@ -62,7 +63,7 @@
         }
 
         .logo span {
-            color: var(--accent-color);
+            color: var(--discord-blue);
         }
 
         nav ul {
@@ -82,7 +83,7 @@
         }
 
         nav ul li a:hover {
-            color: var(--primary-brown);
+            color: var(--discord-blue);
         }
 
         .mobile-menu-btn {
@@ -108,7 +109,7 @@
         }
 
         .hero-text h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 3.2rem;
             font-weight: 600;
             color: var(--dark-brown);
@@ -116,8 +117,19 @@
             margin-bottom: 20px;
         }
 
+        .hero-text h1 span {
+            color: var(--discord-blue);
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.4rem;
+            color: var(--text-medium);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
         .hero-text p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-medium);
             margin-bottom: 30px;
         }
@@ -127,6 +139,16 @@
             border-radius: 10px;
             padding: 30px;
             box-shadow: 0 10px 30px rgba(93, 76, 60, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .discord-icon {
+            font-size: 5rem;
+            color: var(--discord-blue);
+            margin-bottom: 20px;
         }
 
         .skill-badges {
@@ -145,9 +167,13 @@
             font-weight: 500;
         }
 
+        .skill-badge.discord {
+            background-color: var(--discord-blue);
+        }
+
         .btn {
             display: inline-block;
-            background-color: var(--primary-brown);
+            background-color: var(--discord-blue);
             color: white;
             padding: 14px 28px;
             border-radius: 5px;
@@ -159,25 +185,25 @@
         }
 
         .btn:hover {
-            background-color: var(--dark-brown);
+            background-color: #4752c4;
             transform: translateY(-2px);
         }
 
-        .btn-outline {
+        .btn-secondary {
             background-color: transparent;
             border: 2px solid var(--primary-brown);
             color: var(--primary-brown);
             margin-left: 15px;
         }
 
-        .btn-outline:hover {
+        .btn-secondary:hover {
             background-color: var(--primary-brown);
             color: white;
         }
 
         /* Skills Section */
         .section-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 2.5rem;
             font-weight: 600;
             color: var(--dark-brown);
@@ -219,10 +245,18 @@
             transform: translateY(-10px);
         }
 
+        .skill-card.main {
+            border-top: 5px solid var(--discord-blue);
+        }
+
         .skill-icon {
             font-size: 2.5rem;
             color: var(--primary-brown);
             margin-bottom: 20px;
+        }
+
+        .skill-card.main .skill-icon {
+            color: var(--discord-blue);
         }
 
         .skill-card h3 {
@@ -254,6 +288,10 @@
             box-shadow: 0 5px 20px rgba(139, 115, 85, 0.08);
         }
 
+        .project-card.discord {
+            border-top: 5px solid var(--discord-blue);
+        }
+
         .project-image {
             height: 220px;
             background-color: var(--medium-tan);
@@ -262,6 +300,11 @@
             justify-content: center;
             color: var(--primary-brown);
             font-size: 3rem;
+        }
+
+        .project-card.discord .project-image {
+            background-color: rgba(88, 101, 242, 0.1);
+            color: var(--discord-blue);
         }
 
         .project-content {
@@ -290,6 +333,11 @@
             font-weight: 500;
         }
 
+        .project-tag.discord {
+            background-color: rgba(88, 101, 242, 0.1);
+            color: var(--discord-blue);
+        }
+
         /* About Section */
         .about-content {
             display: grid;
@@ -301,6 +349,11 @@
         .about-text p {
             margin-bottom: 20px;
             color: var(--text-medium);
+        }
+
+        .highlight {
+            color: var(--discord-blue);
+            font-weight: 600;
         }
 
         .about-stats {
@@ -321,7 +374,7 @@
         .stat-number {
             font-size: 2.2rem;
             font-weight: 700;
-            color: var(--primary-brown);
+            color: var(--discord-blue);
             display: block;
         }
 
@@ -332,49 +385,62 @@
 
         /* Contact Section */
         .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 40px;
         }
 
         .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary-brown);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid var(--medium-tan);
-            border-radius: 5px;
-            font-family: 'Inter', sans-serif;
+            max-width: 700px;
             background-color: white;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(139, 115, 85, 0.08);
         }
 
-        .contact-form textarea {
-            height: 150px;
-            resize: vertical;
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-brown);
+        }
+
+        .discord-contact {
+            background-color: rgba(88, 101, 242, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .discord-contact h4 {
+            color: var(--discord-blue);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .discord-contact p {
+            margin-bottom: 20px;
+            color: var(--text-medium);
+        }
+
+        .discord-id {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: white;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            color: var(--dark-brown);
+            display: inline-block;
+            margin: 10px 0;
+            border: 1px solid var(--medium-tan);
+        }
+
+        .coming-soon {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--medium-tan);
+            color: var(--text-medium);
         }
 
         /* Footer */
@@ -395,6 +461,10 @@
             font-size: 1.3rem;
             margin-bottom: 20px;
             color: white;
+        }
+
+        .footer-section h3 span {
+            color: var(--discord-blue);
         }
 
         .footer-links {
@@ -435,7 +505,7 @@
         }
 
         .social-links a:hover {
-            background-color: var(--primary-brown);
+            background-color: var(--discord-blue);
         }
 
         .copyright {
@@ -448,7 +518,7 @@
 
         /* Responsive Design */
         @media (max-width: 992px) {
-            .hero-content, .about-content, .contact-container {
+            .hero-content, .about-content {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
@@ -505,7 +575,7 @@
                 padding: 60px 0;
             }
             
-            .btn-outline {
+            .btn-secondary {
                 margin-left: 0;
                 margin-top: 15px;
                 display: block;
@@ -514,6 +584,10 @@
             .about-stats {
                 grid-template-columns: 1fr;
             }
+            
+            .contact-info {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
@@ -521,7 +595,7 @@
     <!-- Header & Navigation -->
     <header>
         <div class="container nav-container">
-            <a href="#" class="logo">Dev<span>Design</span></a>
+            <a href="#" class="logo">Bluv<span>'s Portfolio</span></a>
             
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
@@ -532,7 +606,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#about">About Bluv</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -543,27 +617,30 @@
     <section class="hero" id="home">
         <div class="container hero-content">
             <div class="hero-text">
-                <h1>Full-Stack Developer & Digital Designer</h1>
-                <p>I create cohesive digital experiences by combining backend logic with elegant front-end design and thoughtful visual communication.</p>
+                <h1>Hi, I'm <span>Bluv</span></h1>
+                <div class="subtitle">Discord Bot Developer & Specialist</div>
+                <p>I create powerful, custom Discord bots that enhance communities with automation, moderation, games, and interactive features. With additional skills in web development and design, I build complete bot ecosystems.</p>
                 
                 <div class="skill-badges">
-                    <span class="skill-badge">Python & Discord</span>
-                    <span class="skill-badge">HTML/CSS/JSON</span>
-                    <span class="skill-badge">Graphic Design</span>
-                    <span class="skill-badge">UI/UX Design</span>
-                    <span class="skill-badge">Full-Stack Development</span>
+                    <span class="skill-badge discord">Discord Bot Development</span>
+                    <span class="skill-badge">Python + discord.py</span>
+                    <span class="skill-badge">Web Dashboard Design</span>
+                    <span class="skill-badge">Bot UI/UX</span>
+                    <span class="skill-badge">Community Management</span>
                 </div>
                 
                 <div style="margin-top: 30px;">
-                    <a href="#projects" class="btn">View My Work</a>
-                    <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                    <a href="#projects" class="btn">View My Discord Bots</a>
+                    <a href="#contact" class="btn btn-secondary">Contact on Discord</a>
                 </div>
             </div>
             
             <div class="hero-image">
-                <div style="background-color: var(--light-tan); height: 300px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--primary-brown);">
-                    <i class="fas fa-laptop-code" style="font-size: 5rem;"></i>
+                <div class="discord-icon">
+                    <i class="fab fa-discord"></i>
                 </div>
+                <h3 style="color: var(--discord-blue); margin-bottom: 10px;">Bluv's Bot Services</h3>
+                <p style="text-align: center; color: var(--text-medium);">Custom Discord bots with web dashboards, moderation tools, games, and automation systems.</p>
             </div>
         </div>
     </section>
@@ -571,20 +648,22 @@
     <!-- Skills Section -->
     <section id="skills" style="background-color: var(--light-tan);">
         <div class="container">
-            <h2 class="section-title">My Technical Skills</h2>
+            <h2 class="section-title">Bluv's Technical Skills</h2>
             
             <div class="skills-container">
-                <div class="skill-card">
+                <div class="skill-card main">
                     <div class="skill-icon">
-                        <i class="fab fa-python"></i>
+                        <i class="fab fa-discord"></i>
                     </div>
-                    <h3>Python + Discord</h3>
-                    <p>Backend logic, automation, and bot creation for interactive Discord communities.</p>
+                    <h3>Discord Bot Development</h3>
+                    <p><strong>My primary expertise:</strong> Creating custom Discord bots with Python and discord.py for all types of communities.</p>
                     <ul>
-                        <li>Discord bot development with discord.py</li>
-                        <li>Backend automation & APIs</li>
-                        <li>Bot dashboard creation</li>
-                        <li>Server moderation tools</li>
+                        <li>Full-featured Discord bots with slash commands</li>
+                        <li>Moderation & auto-moderation systems</li>
+                        <li>Game integration & economy systems</li>
+                        <li>Music bots & media playback</li>
+                        <li>Ticket systems & support bots</li>
+                        <li>API integration & webhooks</li>
                     </ul>
                 </div>
                 
@@ -592,13 +671,14 @@
                     <div class="skill-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <h3>HTML + CSS + JSON</h3>
-                    <p>Front-end development with clean code and responsive design.</p>
+                    <h3>Web Development</h3>
+                    <p>Building companion websites and dashboards for Discord bots and other projects.</p>
                     <ul>
-                        <li>Responsive website development</li>
-                        <li>Front-end architecture</li>
-                        <li>Data handling with JSON</li>
-                        <li>Cross-browser compatibility</li>
+                        <li>Bot dashboard websites</li>
+                        <li>Landing pages for Discord communities</li>
+                        <li>HTML/CSS/JavaScript frontends</li>
+                        <li>JSON data handling</li>
+                        <li>Responsive design</li>
                     </ul>
                 </div>
                 
@@ -606,13 +686,14 @@
                     <div class="skill-icon">
                         <i class="fas fa-palette"></i>
                     </div>
-                    <h3>Graphic Design</h3>
-                    <p>Visual communication, UI/UX, and asset creation for digital products.</p>
+                    <h3>Design & UI/UX</h3>
+                    <p>Creating visually appealing interfaces for bots and websites to enhance user experience.</p>
                     <ul>
-                        <li>UI/UX design & prototyping</li>
-                        <li>Logo & branding design</li>
-                        <li>Website & app interfaces</li>
-                        <li>Marketing visuals</li>
+                        <li>Bot command UI design</li>
+                        <li>Web dashboard interfaces</li>
+                        <li>Logo & graphic design for communities</li>
+                        <li>User experience optimization</li>
+                        <li>Brand consistency</li>
                     </ul>
                 </div>
             </div>
@@ -622,53 +703,53 @@
     <!-- Projects Section -->
     <section id="projects">
         <div class="container">
-            <h2 class="section-title">Project Portfolio</h2>
+            <h2 class="section-title">Bluv's Discord Bot Projects</h2>
             
             <div class="projects-container">
-                <div class="project-card">
+                <div class="project-card discord">
                     <div class="project-image">
-                        <i class="fab fa-discord"></i>
+                        <i class="fas fa-robot"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Discord Bot with Dashboard</h3>
-                        <p>A fully-featured Discord bot with a custom web dashboard for server management, featuring user analytics, moderation tools, and game integrations.</p>
+                        <h3>CommunityGuard Bot</h3>
+                        <p>A comprehensive moderation and management bot with auto-moderation, logging, role management, and custom commands designed for large Discord communities.</p>
                         <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Discord.py</span>
-                            <span class="project-tag">HTML/CSS</span>
-                            <span class="project-tag">JSON API</span>
+                            <span class="project-tag discord">Python</span>
+                            <span class="project-tag discord">discord.py</span>
+                            <span class="project-tag discord">Moderation</span>
+                            <span class="project-tag discord">Automation</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="project-card">
+                <div class="project-card discord">
                     <div class="project-image">
-                        <i class="fas fa-shopping-cart"></i>
+                        <i class="fas fa-gamepad"></i>
                     </div>
                     <div class="project-content">
-                        <h3>E-Commerce Web Application</h3>
-                        <p>A full-stack e-commerce solution with product management, user authentication, and payment processing, designed with a focus on user experience.</p>
+                        <h3>GameHub Bot</h3>
+                        <p>Interactive gaming bot with economy system, mini-games, leveling, achievements, and virtual currency. Includes leaderboards and tournament organization features.</p>
                         <div class="project-tags">
-                            <span class="project-tag">Python/Flask</span>
-                            <span class="project-tag">HTML/CSS</span>
-                            <span class="project-tag">UI Design</span>
-                            <span class="project-tag">Database</span>
+                            <span class="project-tag discord">Games</span>
+                            <span class="project-tag discord">Economy System</span>
+                            <span class="project-tag discord">Database</span>
+                            <span class="project-tag discord">Interactive</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="project-card">
+                <div class="project-card discord">
                     <div class="project-image">
-                        <i class="fas fa-paint-brush"></i>
+                        <i class="fas fa-tachometer-alt"></i>
                     </div>
                     <div class="project-content">
-                        <h3>Brand Identity Package</h3>
-                        <p>Complete branding package for a tech startup, including logo design, color palette, typography, and responsive website design.</p>
+                        <h3>Bot Dashboard Website</h3>
+                        <p>Web dashboard for controlling Discord bot settings, viewing analytics, and managing server configurations with a clean, user-friendly interface.</p>
                         <div class="project-tags">
-                            <span class="project-tag">Graphic Design</span>
-                            <span class="project-tag">Branding</span>
-                            <span class="project-tag">UI/UX</span>
-                            <span class="project-tag">Web Design</span>
+                            <span class="project-tag discord">Web Dashboard</span>
+                            <span class="project-tag discord">HTML/CSS</span>
+                            <span class="project-tag discord">UI Design</span>
+                            <span class="project-tag discord">Analytics</span>
                         </div>
                     </div>
                 </div>
@@ -679,33 +760,37 @@
     <!-- About Section -->
     <section id="about" style="background-color: var(--light-tan);">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title">About Bluv</h2>
             
             <div class="about-content">
                 <div class="about-text">
-                    <p>I'm a multidisciplinary developer focused on Python, web technologies, and design. My unique combination of technical and creative skills allows me to build complete digital solutions that are both functional and visually appealing.</p>
-                    <p>What sets me apart is my ability to connect backend logic with elegant front-end design and thoughtful user experience. Whether I'm creating a Discord bot with a custom dashboard or building a full-stack web application, I ensure the product looks as good as it works.</p>
-                    <p>My approach is holistic: I consider not just the code, but the entire user journey, brand consistency, and visual communication to create cohesive digital experiences.</p>
+                    <p>I'm <span class="highlight">Bluv</span>, a dedicated Discord bot developer with a passion for creating tools that enhance online communities. My focus is on building reliable, feature-rich bots that solve real problems for Discord server owners and members.</p>
+                    <p>While Discord bot development is my primary expertise, I also have skills in web development and design that allow me to create complete solutions - not just the bot itself, but also companion websites, dashboards, and visual assets.</p>
+                    <p>I believe that a great Discord bot should be both powerful and user-friendly, with intuitive commands and a clean interface. Every bot I create is tailored to the specific needs of the community it serves.</p>
                     
                     <div class="about-stats">
                         <div class="stat">
-                            <span class="stat-number">50+</span>
-                            <span class="stat-label">Projects Completed</span>
+                            <span class="stat-number">30+</span>
+                            <span class="stat-label">Discord Bots Created</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number">3+</span>
-                            <span class="stat-label">Years Experience</span>
+                            <span class="stat-number">50K+</span>
+                            <span class="stat-label">Total Bot Users</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number">100%</span>
-                            <span class="stat-label">Client Satisfaction</span>
+                            <span class="stat-number">2023</span>
+                            <span class="stat-label">Started Developing</span>
                         </div>
                     </div>
                 </div>
                 
                 <div>
-                    <div style="background-color: var(--medium-tan); height: 400px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--primary-brown);">
-                        <i class="fas fa-user-tie" style="font-size: 5rem;"></i>
+                    <div style="background-color: var(--medium-tan); height: 400px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--discord-blue);">
+                        <div style="text-align: center;">
+                            <i class="fab fa-discord" style="font-size: 5rem; margin-bottom: 20px;"></i>
+                            <h3 style="color: var(--dark-brown);">Bluv's Specialization</h3>
+                            <p style="color: var(--text-medium); max-width: 300px; margin: 0 auto;">Focused on Discord ecosystem development with Python, discord.py, and complementary web technologies.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -715,56 +800,27 @@
     <!-- Contact Section -->
     <section id="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <h2 class="section-title">Contact Bluv</h2>
             
             <div class="contact-container">
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h3>Email</h3>
-                            <p>hello@devdesign.com</p>
-                        </div>
+                    <h3>Get in Touch for Discord Bot Projects</h3>
+                    <p>I'm currently available for custom Discord bot development, bot modifications, and consultation for your Discord community needs.</p>
+                    
+                    <div class="discord-contact">
+                        <h4><i class="fab fa-discord"></i> Contact on Discord</h4>
+                        <p>The best way to reach me is directly on Discord. Send me a friend request or message to discuss your bot project.</p>
+                        <div class="discord-id">Bluv#0000</div>
+                        <p>Or use my Discord ID:</p>
+                        <div class="discord-id">1444783634828759151</div>
+                        <a href="https://discord.com/users/1444783634828759151" target="_blank" class="btn" style="margin-top: 15px;">
+                            <i class="fab fa-discord"></i> Open Discord Profile
+                        </a>
                     </div>
                     
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            <h3>Phone</h3>
-                            <p>+1 (555) 123-4567</p>
-                        </div>
+                    <div class="coming-soon">
+                        <p><i class="fas fa-hourglass-half"></i> <strong>Coming Soon:</strong> Contact forms, Discord bot contact system, and additional contact methods are in development.</p>
                     </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h3>Location</h3>
-                            <p>Digital Nomad - Available Worldwide</p>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-discord"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-codepen"></i></a>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <input type="text" placeholder="Subject" required>
-                        <textarea placeholder="Your Message" required></textarea>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -775,39 +831,50 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>DevDesign</h3>
-                    <p>Full-stack development and digital design services with a focus on creating cohesive, functional, and visually appealing digital experiences.</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+                    <h3>Bluv<span>'s Portfolio</span></h3>
+                    <p>Discord bot development specialist focused on creating custom bots for communities of all sizes. Based in the Discord ecosystem since 2023.</p>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Services</h3>
                     <ul class="footer-links">
-                        <li><a href="#projects">Discord Bot Development</a></li>
-                        <li><a href="#projects">Web Application Design</a></li>
-                        <li><a href="#projects">Graphic Design</a></li>
-                        <li><a href="#projects">Full-Stack Development</a></li>
+                        <li><a href="#projects">Custom Discord Bots</a></li>
+                        <li><a href="#projects">Bot Modifications</a></li>
+                        <li><a href="#projects">Bot Dashboard Websites</a></li>
+                        <li><a href="#projects">Consultation</a></li>
                     </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="https://discord.com/users/1444783634828759151" target="_blank" title="Discord">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="#" title="GitHub (Coming Soon)">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" title="Code Examples (Coming Soon)">
+                            <i class="fas fa-code"></i>
+                        </a>
+                    </div>
+                    <p style="margin-top: 20px; color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+                        Primary contact: Discord direct message
+                    </p>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 DevDesign. All rights reserved.</p>
+                <p>&copy; <span id="currentYear">2025</span> Bluv's Portfolio. All rights reserved.</p>
+                <p style="margin-top: 5px;">Discord bot developer specializing in Python, discord.py, and bot ecosystem development.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mainNav = document.getElementById('mainNav');
@@ -831,14 +898,6 @@
                     item.style.margin = '10px 0';
                 });
             }
-        });
-        
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            contactForm.reset();
         });
         
         // Smooth scrolling for navigation links
