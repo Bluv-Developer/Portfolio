@@ -3,303 +3,335 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon | 2025-2026</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Coming Soon - Bluv</title>
+    <!-- Load Tailwind CSS from CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
+        /* Import custom fonts for the selection effect */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
+        /* Custom styles for a minimal, clean, and professional look */
         body {
-            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            /* Light tan/off-white background for natural feel */
+            background-color: #f7f3f1; 
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: white;
-            padding: 20px;
-            text-align: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            user-select: none; /* Disable native text selection globally */
+        }
+
+        /* Custom Keyframe for subtle slide-up animation */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
-        @keyframes gradientBG {
+        /* Apply the slide-up animation to the main content */
+        .slide-in-animation {
+            animation: slideUp 0.8s ease-out backwards;
+        }
+
+        /* Custom GLOW effect for the launch button */
+        .glow-hover {
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); 
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 40px rgba(255, 193, 7, 0.7); /* Custom amber glow shadow */
+        }
+
+        /* --- Custom Flashing Hint Animation --- */
+        @keyframes flashGlow {
+            0%, 100% { 
+                opacity: 1; 
+                text-shadow: 0 0 3px rgba(0, 0, 0, 0.2); /* Subtle dark text shadow for the glow */
+            }
+            50% { 
+                opacity: 0.8; 
+                text-shadow: 0 0 8px rgba(0, 0, 0, 0.4); /* Brighter pulse */
+            }
+        }
+
+        .flashing-hint {
+            animation: flashGlow 1.5s infinite alternate;
+        }
+
+        /* --- CUSTOM SELECTION STYLES & ANIMATION --- */
+        @keyframes rainbowPulse {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        
-        .container {
-            max-width: 800px;
-            width: 100%;
-            padding: 40px;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+
+        .selected-word {
+            display: inline-block;
+            font-family: 'Bungee', cursive !important;
+            font-weight: 700 !important;
+            background: linear-gradient(120deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+            background-size: 400% 400%;
+            color: #1c1917 !important;
+            padding: 2px 4px;
+            margin: -2px 0;
+            border-radius: 6px;
+            line-height: 1.2;
+            transition: all 0.1s ease-out;
+            animation: rainbowPulse 5s ease infinite;
         }
         
-        h1 {
-            font-size: 4.5rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            background: linear-gradient(to right, #ff7e5f, #feb47b);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 15px rgba(255, 126, 95, 0.3);
+        .selectable-word {
+            transition: all 0.1s ease-out;
+            cursor: default;
         }
-        
-        .subtitle {
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            font-weight: 300;
-            color: #f0f0f0;
+
+        #headline, #subtitle {
+            display: block;
+            text-align: center;
         }
-        
-        .year-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 40px 0;
-            gap: 30px;
-        }
-        
-        .year {
-            font-size: 5rem;
-            font-weight: 800;
-            padding: 20px 40px;
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            min-width: 180px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .year:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-        
-        .year:hover:before {
-            left: 100%;
-        }
-        
-        .dash {
-            font-size: 4rem;
-            color: #ff7e5f;
-            font-weight: 300;
-        }
-        
-        .powered-by {
-            margin-top: 50px;
-            font-size: 1.8rem;
-            color: #ddd;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .bluv {
-            color: #4da6ff;
-            font-weight: 700;
-            font-size: 2.2rem;
-            text-shadow: 0 0 10px rgba(77, 166, 255, 0.5);
-            letter-spacing: 1px;
-        }
-        
-        .counter {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
-            margin-bottom: 30px;
-        }
-        
-        .time-unit {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 15px;
-            border-radius: 10px;
-            min-width: 100px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .time-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #ff7e5f;
-        }
-        
-        .time-label {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 5px;
-            color: #ccc;
-        }
-        
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-        }
-        
-        .social-icons a {
-            color: white;
-            font-size: 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .social-icons a:hover {
-            background: #ff7e5f;
-            transform: translateY(-5px);
-        }
-        
-        .notification {
-            margin-top: 30px;
-            font-size: 1.1rem;
-            color: #aaa;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        @media (max-width: 768px) {
-            h1 { font-size: 3rem; }
-            .subtitle { font-size: 1.8rem; }
-            .year { font-size: 3.5rem; min-width: 140px; padding: 15px 25px; }
-            .dash { font-size: 3rem; }
-            .year-container { gap: 15px; }
-            .time-unit { min-width: 80px; }
-            .time-value { font-size: 2rem; }
-            .powered-by { font-size: 1.5rem; }
-            .bluv { font-size: 1.8rem; }
-        }
-        
-        @media (max-width: 480px) {
-            .container { padding: 25px; }
-            h1 { font-size: 2.2rem; }
-            .subtitle { font-size: 1.4rem; }
-            .year { font-size: 2.5rem; min-width: 110px; padding: 10px 15px; }
-            .dash { font-size: 2rem; }
-            .year-container { flex-direction: column; gap: 5px; }
-            .counter { flex-wrap: wrap; }
-            .powered-by { font-size: 1.3rem; }
-            .bluv { font-size: 1.5rem; }
-        }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Coming Soon</h1>
-        <div class="subtitle">Something amazing is on the way</div>
-        
-        <div class="year-container">
-            <div class="year">2025</div>
-            <div class="dash">-</div>
-            <div class="year">2026</div>
-        </div>
-        
-        <div class="counter">
-            <div class="time-unit">
-                <div class="time-value" id="days">00</div>
-                <div class="time-label">Days</div>
+
+    <!-- Main Content Area: Increased padding and separation for cleanliness -->
+    <div class="flex-grow flex items-center justify-center p-8 sm:p-16">
+        <div class="text-center max-w-4xl w-full space-y-12">
+            
+            <!-- Logo/Brand Identity - Bigger, Interactive, with subtle rotate on hover -->
+            <div class="mb-12 transition duration-300 hover:animate-pulse hover:rotate-1">
+                <img 
+                    src="https://ik.imagekit.io/tycncf0zq0/Bluv.jpg" 
+                    alt="Bluv Logo" 
+                    class="max-h-28 mx-auto rounded-xl shadow-lg transition duration-300"
+                    title="Bluv Logo"
+                    onerror="this.onerror=null; this.src='https://placehold.co/150x80/f7f3f1/stone?text=BLUV+Logo'"
+                >
             </div>
-            <div class="time-unit">
-                <div class="time-value" id="hours">00</div>
-                <div class="time-label">Hours</div>
+            
+            <!-- New Hint Message: Flashing, black, and very small -->
+            <div id="hint-message" class="flashing-hint text-xs text-stone-900 lowercase tracking-wider -mt-6 mb-4 slide-in-animation" style="animation-delay: 0.1s;">
+                try clicking a word!
             </div>
-            <div class="time-unit">
-                <div class="time-value" id="minutes">00</div>
-                <div class="time-label">Minutes</div>
+
+            <!-- Primary Headline and Subtitle Containers (Will be populated by JS) -->
+            <header class="space-y-6">
+                <!-- Headline Animation Delay adjusted to 0.3s -->
+                <h1 id="headline" class="text-5xl sm:text-7xl lg:text-8xl font-black text-stone-900 leading-none slide-in-animation" style="animation-delay: 0.3s;">
+                    <!-- Original Text: Building Something Extraordinary. -->
+                </h1>
+
+                <!-- Subtitle/Description Animation Delay adjusted to 0.5s -->
+                <p id="subtitle" class="text-xl sm:text-2xl text-stone-600 font-light max-w-2xl mx-auto pt-4 slide-in-animation" style="animation-delay: 0.5s;">
+                    <!-- Original Text: Our modern platform is launching soon. -->
+                </p>
+            </header>
+
+            <!-- Launch Date Callout - Refined Button Animation Delay 0.7s -->
+            <div class="pt-8 slide-in-animation" style="animation-delay: 0.7s;">
+                <div class="inline-block bg-stone-900 text-white text-base font-bold px-10 py-3 rounded-full shadow-xl glow-hover transition duration-300 cursor-default tracking-widest uppercase">
+                    Launch Window: 2025 – 2026
+                </div>
             </div>
-            <div class="time-unit">
-                <div class="time-value" id="seconds">00</div>
-                <div class="time-label">Seconds</div>
-            </div>
-        </div>
-        
-        <div class="powered-by">
-            Powered by <span class="bluv">Bluv</span>
-        </div>
-        
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-        
-        <div class="notification">
-            We're working hard to bring you something special. Stay tuned for updates!
+
         </div>
     </div>
 
+    <!-- Footer: Clean separation for organization, with delayed slide-in animation (0.9s) -->
+    <footer class="p-6 text-center text-stone-600 text-sm border-t border-stone-200 slide-in-animation" style="animation-delay: 0.9s;">
+        &copy; 2025 Future Site. All Rights Reserved. Powered by 
+        <span class="font-extrabold text-amber-700">Bluv</span>
+    </footer>
+    
     <script>
-        // Set the target date (January 1, 2025)
-        const targetDate = new Date("Jan 1, 2025 00:00:00").getTime();
-        
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const timeLeft = targetDate - now;
-            
-            // Calculate days, hours, minutes, seconds
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-            
-            // Update the display
-            document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
-            document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
-            document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
-            document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
-            
-            // If the countdown is over
-            if (timeLeft < 0) {
-                clearInterval(countdownInterval);
-                document.querySelector(".counter").innerHTML = "<div style='font-size: 2rem; color: #ff7e5f;'>We're here! Launching soon.</div>";
+        // --- TEXT CONTENT ---
+        const HEADLINE_TEXT = "Building Something Extraordinary.";
+        const SUBTITLE_TEXT = "Our modern platform is launching soon.";
+
+        // --- DOM ELEMENTS ---
+        const headlineEl = document.getElementById('headline');
+        const subtitleEl = document.getElementById('subtitle');
+        const hintMessageEl = document.getElementById('hint-message'); // Access the new hint element
+        const selectableContainers = [headlineEl, subtitleEl];
+
+        // --- SELECTION STATE ---
+        let isSelecting = false;
+        let selectedSpans = new Set();
+        let allWords = [];
+        let hintDismissed = false; // Flag to track if the hint has been removed
+
+        // Function to wrap text content into selectable spans
+        function wrapWords(element, text) {
+            element.textContent = '';
+            // Split by any sequence of whitespace
+            const words = text.split(/\s+/); 
+            words.forEach(word => {
+                // Only process non-empty words
+                if (word.length > 0) {
+                    // Create a container span for the word
+                    const wordSpan = document.createElement('span');
+                    wordSpan.textContent = word;
+                    wordSpan.classList.add('selectable-word', 'transition-all');
+                    
+                    wordSpan.dataset.text = word; 
+                    allWords.push(wordSpan);
+                    element.appendChild(wordSpan);
+                    
+                    // CRITICAL: Append a normal space after the word span to ensure standard browser word wrapping and spacing
+                    element.appendChild(document.createTextNode(' ')); 
+                }
+            });
+        }
+
+        // --- CORE LOGIC ---
+
+        function handleMouseDown(e) {
+            // Check if the click is within the headline or subtitle area
+            if (selectableContainers.some(el => el.contains(e.target))) {
+                 // Dismiss the hint on the first successful interaction with a selectable word
+                if (!hintDismissed && e.target.classList.contains('selectable-word')) {
+                    hintMessageEl.classList.remove('flashing-hint');
+                    // Make the hint disappear gently
+                    hintMessageEl.style.transition = 'opacity 0.5s ease-out, margin 0.5s ease-out';
+                    hintMessageEl.style.opacity = '0'; 
+                    // Optional: remove margin space to collapse the area
+                    hintMessageEl.style.marginBottom = '0'; 
+                    setTimeout(() => {
+                        hintMessageEl.remove();
+                    }, 500);
+                    hintDismissed = true;
+                }
+
+                isSelecting = true;
+                // Clear existing selection and styles
+                clearSelection();
+                // Set the current word as the start of selection
+                if (e.target.classList.contains('selectable-word')) {
+                    e.target.classList.add('selected-word');
+                    selectedSpans.add(e.target);
+                }
+            } else {
+                isSelecting = false;
             }
         }
+
+        function handleMouseMove(e) {
+            if (!isSelecting) return;
+
+            const target = e.target;
+            if (target.classList.contains('selectable-word')) {
+                // If the target is a word, update the selection range
+                updateSelection(target);
+            }
+        }
+
+        function handleMouseUp() {
+            isSelecting = false;
+        }
         
-        // Update the countdown every second
-        const countdownInterval = setInterval(updateCountdown, 1000);
-        
-        // Initial call to avoid delay
-        updateCountdown();
-        
-        // Add hover effect to year elements
-        document.querySelectorAll('.year').forEach(year => {
-            year.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.05)';
-                this.style.transition = 'transform 0.3s ease';
-            });
+        function updateSelection(currentWordSpan) {
+            // Find the index of the word clicked/hovered
+            const currentIndex = allWords.indexOf(currentWordSpan);
+            if (currentIndex === -1) return;
+
+            // Find the boundaries of the existing selection
+            let start = -1;
+            let end = -1;
+
+            // Find the first and last selected words
+            for (let i = 0; i < allWords.length; i++) {
+                if (selectedSpans.has(allWords[i])) {
+                    if (start === -1) start = i;
+                    end = i;
+                }
+            }
             
-            year.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1)';
+            // Determine if we are extending left or right
+            let newStart = start;
+            let newEnd = end;
+
+            if (start === -1) {
+                // No current selection, select only the current word
+                newStart = currentIndex;
+                newEnd = currentIndex;
+            } else if (currentIndex < start) {
+                // Extending selection to the left
+                newStart = currentIndex;
+            } else if (currentIndex > end) {
+                // Extending selection to the right
+                newEnd = currentIndex;
+            } else if (currentIndex >= start && currentIndex <= end) {
+                // If clicked inside current selection, we need to find the closest boundary to "snap" to
+                const distanceToStart = currentIndex - start;
+                const distanceToEnd = end - currentIndex;
+
+                if (distanceToStart < distanceToEnd) {
+                    // Closer to start, new end becomes the current index
+                    newEnd = currentIndex;
+                } else {
+                    // Closer to end, new start becomes the current index
+                    newStart = currentIndex;
+                }
+            }
+            
+            // Re-apply selection based on new boundaries
+            clearSelection();
+            for (let i = newStart; i <= newEnd; i++) {
+                if (i >= 0 && i < allWords.length) {
+                    allWords[i].classList.add('selected-word');
+                    selectedSpans.add(allWords[i]);
+                }
+            }
+        }
+
+        function clearSelection() {
+            selectedSpans.forEach(span => span.classList.remove('selected-word'));
+            selectedSpans.clear();
+        }
+
+        // --- DISABLE DEFAULT ACTIONS (Copy/Paste/Save) ---
+
+        function disableDefaultActions(e) {
+            // Prevents context menu (right click), image saving, and copy
+            e.preventDefault();
+            e.stopPropagation();
+            console.log("Browser default action blocked.");
+        }
+        
+        // --- INITIALIZATION ---
+        window.onload = function() {
+            // 1. Wrap the text in spans for individual styling
+            wrapWords(headlineEl, HEADLINE_TEXT);
+            wrapWords(subtitleEl, SUBTITLE_TEXT);
+
+            // 2. Attach custom selection event listeners
+            document.addEventListener('mousedown', handleMouseDown);
+            document.addEventListener('mousemove', handleMouseMove);
+            document.addEventListener('mouseup', handleMouseUp);
+            
+            // 3. Disable default browser actions
+            document.addEventListener('contextmenu', disableDefaultActions);
+            document.addEventListener('copy', disableDefaultActions);
+            document.addEventListener('selectstart', disableDefaultActions); 
+            
+            // Prevent dragging/saving of the logo image
+            const logoImage = document.querySelector('img');
+            logoImage.addEventListener('mousedown', (e) => {
+                if (e.button === 0) e.preventDefault(); // Prevents image drag
             });
-        });
+            logoImage.addEventListener('contextmenu', disableDefaultActions);
+            logoImage.addEventListener('copy', disableDefaultActions);
+            
+            console.log("Custom selection and protection initialized.");
+        };
+
     </script>
 </body>
 </html>
